@@ -1,0 +1,83 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/templates/indexTemplate.xhtml">
+	<ui:define name="content">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="span4">
+				<h2>News</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+			</div>
+			<div class="span4">
+				<h2>Random Blogroll</h2>
+				<ul>
+					<li>Test 1</li>
+					<li>Test 2</li>
+				</ul>
+			</div>
+			<div class="span4">
+				<h2>Login</h2>
+				<p>
+					<h:inputText id="inputUsername" value="" />
+					<p:watermark for="inputUsername" value="Username" />
+					<br />
+					<h:inputText id="inputPassword" value="" />
+					<p:watermark for="inputPassword" value="Password"></p:watermark>
+				</p>
+				<p>
+					<a class="btn" href="#">Login</a>
+				</p>
+				<p>
+					<pretty:link mappingId="registry">Registrieren</pretty:link>
+				</p>
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="row">
+			<div class="span12">
+				<h2>Latest Articles...</h2>
+			</div>
+			<div class="span12">
+				<h3>Article 1</h3>
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+					diam nonumy eirmod tempor invidunt ut labore et dolore magna
+					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+				<h3>Article 2</h3>
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+					diam nonumy eirmod tempor invidunt ut labore et dolore magna
+					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+				<h3>Article 3</h3>
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+					diam nonumy eirmod tempor invidunt ut labore et dolore magna
+					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
