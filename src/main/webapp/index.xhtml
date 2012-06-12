@@ -22,22 +22,32 @@
 					<li>Test 2</li>
 				</ul>
 			</div>
-			<div class="span4">
-				<h2>Login</h2>
-				<p>
-					<h:inputText id="inputUsername" value="" />
-					<p:watermark for="inputUsername" value="Username" />
-					<br />
-					<h:inputText id="inputPassword" value="" />
-					<p:watermark for="inputPassword" value="Password"></p:watermark>
-				</p>
-				<p>
-					<a class="btn" href="#">Login</a>
-				</p>
-				<p>
-					<pretty:link mappingId="registry">Registrieren</pretty:link>
-				</p>
-			</div>
+			<h:panelGroup layout="block" id="divUserAction" class="span4">
+				<ui:fragment rendered="#{not userBean.loggedIn}">
+					<h2>Login</h2>
+					<h:form id="formLogin">
+						<p>
+							<h:inputText id="inputUsername" value="#{userBean.userName}" requiredMessage="Username is required." required="true" />
+							<p:watermark for="inputUsername" value="Username" />
+							<br />
+							<h:inputSecret id="inputPassword" value="#{userBean.password}" requiredMessage="Password is required." required="true" />
+							<p:watermark for="inputPassword" value="Password"></p:watermark>
+						</p>
+						<p>
+							<p:commandLink id="btnLogin" styleClass="btn" action="#{userBean.login}" update=":divUserAction">Login</p:commandLink>
+							<h:messages layout="table" id="errorLogin" styleClass="alert-error" />
+						</p>
+						<p>
+							<pretty:link mappingId="registry">Registrieren</pretty:link>
+						</p>
+					</h:form>
+				</ui:fragment>
+				<ui:fragment rendered="#{userBean.loggedIn}">
+					<h2>
+						<h:outputText value="Welcome #{userBean.user.userName}" />
+					</h2>
+				</ui:fragment>
+			</h:panelGroup>
 		</div>
 
 		<hr />
