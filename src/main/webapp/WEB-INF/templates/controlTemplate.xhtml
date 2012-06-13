@@ -1,13 +1,14 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
 	template="/WEB-INF/templates/layoutTemplate.xhtml">
 	<ui:define name="subNavbar">
 		<div class="subnav subnav-fixed">
 			<ul class="nav nav-pills">
-				<li><a>User</a></li>
-				<li><a>Articles</a></li>
-				<li><a>Features</a></li>
+				<li class="#{prettyContext.currentMapping.id eq 'controlUser'? 'active':''}"><pretty:link mappingId="controlUser">User</pretty:link></li>
+				<li class="#{prettyContext.currentMapping.id eq 'controlArticles'? 'active':''}"><pretty:link mappingId="controlArticles" >Articles</pretty:link></li>
+				<li class="#{prettyContext.currentMapping.id eq 'controlFeatures'? 'active':''}"><pretty:link mappingId="controlFeatures" >Features</pretty:link></li>
 			</ul>
 		</div>
 	</ui:define>

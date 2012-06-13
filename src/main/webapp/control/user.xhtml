@@ -8,8 +8,34 @@
 	<ui:define name="headline"> User Control</ui:define>
 	<ui:define name="controlContent">
 		<div class="row">
-			<div class="span4">
-			</div>		
+			<div class="span3">
+				<h3>Image</h3>
+				
+				<h3>Account information</h3>
+				<table class="table-condensed">
+					<tr>
+						<td><h:outputText value="Username: " /></td>
+						<td><h:outputText value="#{userBean.user.userName}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Email: " /></td>
+						<td><h:outputText value="#{userBean.user.email}" /></td>
+					</tr>
+				</table>
+			</div>
+			<div class="span3">
+				<h3>Personal information</h3>
+				<table class="table-condensed">
+					<tr>
+						<td><h:outputText value="Username: " /></td>
+						<td><h:outputText value="#{userBean.user.userName}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Email: " /></td>
+						<td><h:outputText value="#{userBean.user.email}" /></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>

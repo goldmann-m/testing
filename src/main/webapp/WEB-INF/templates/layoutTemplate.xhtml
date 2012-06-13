@@ -41,8 +41,8 @@ body {
 						</li>
 						<ui:fragment rendered="#{userBean.loggedIn}">
 							<li
-								class="#{prettyContext.currentMapping.id eq 'control'? 'active':''}">
-								<pretty:link mappingId="control">Control</pretty:link>
+								class="#{(prettyContext.currentMapping.id eq 'controlUser' || prettyContext.currentMapping.id eq 'controlArticles' || prettyContext.currentMapping.id eq 'controlFeatures') ? 'active':''}">
+								<pretty:link mappingId="controlUser">Control</pretty:link>
 							</li>
 						</ui:fragment>
 						<li
@@ -57,7 +57,7 @@ body {
 					<ui:fragment rendered="#{userBean.loggedIn}">
 						<h:form style="margin:0;">
 							<ul class="nav pull-right">
-								<li><h:commandLink>Logout</h:commandLink></li>
+								<li><h:commandLink action="#{userBean.logout}">Logout</h:commandLink></li>
 							</ul>
 						</h:form>
 					</ui:fragment>

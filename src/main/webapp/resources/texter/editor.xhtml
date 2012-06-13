@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:campus="http://java.sun.com/jsf/composite/campus"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<cc:interface>
+		<cc:attribute name="editorID" required="true" />
+		<cc:attribute name="beanAttribute" required="true" />
+	</cc:interface>
+	<cc:implementation>
+		<h:outputScript name="nicEdit.js" library="js" />
+		 <script type="text/javascript">
+			//<![CDATA[
+			  bkLib.onDomLoaded(function() {
+			        new nicEditor({maxHeight : 100}).panelInstance('#{cc.attr.editorID}');
+			  });
+			  //]]>
+ 		 </script>
+ 		 <h:inputTextarea value="#{cc.attr.beanAttribute}" />
+	</cc:implementation>
+</ui:composition>

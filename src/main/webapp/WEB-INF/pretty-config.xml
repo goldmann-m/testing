@@ -7,9 +7,19 @@
 		<view-id value="/faces/index.xhtml" />
 	</url-mapping>
 	
-	<url-mapping id="control">
+	<url-mapping id="controlUser">
 		<pattern value="/control/user/" />
 		<view-id value="/faces/control/user.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="controlArticles">
+		<pattern value="/control/articles/" />
+		<view-id value="/faces/control/articles.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="controlFeatures">
+		<pattern value="/control/features/" />
+		<view-id value="/faces/control/features.xhtml" />
 	</url-mapping>
 	
 	<url-mapping id="about">

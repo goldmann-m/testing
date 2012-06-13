@@ -59,12 +59,33 @@ public class UserBean implements Serializable {
 		this.user = user;
 
 	}
-	
+
+	/**
+	 * logout the user
+	 * 
+	 * @return mapping to home
+	 */
+	public String logout() {
+		user = null;
+		loggedIn = false;
+		FacesContext.getCurrentInstance().getExternalContext()
+				.invalidateSession();
+
+		return "pretty:home";
+	}
+
 	/**
 	 * save a new user
 	 */
-	public void saveUser(){
-		userService.saveUser(userName, password, email);
+	public void registerUser() {
+		userService.registerUser(userName, password, email);
+	}
+
+	/**
+	 * edit the user
+	 */
+	public void editUser() {
+		userService.editUser(user);
 	}
 
 	/**

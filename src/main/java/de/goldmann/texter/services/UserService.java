@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.NoResultException;
 
 import de.goldmann.texter.dao.UserDao;
@@ -31,9 +30,10 @@ public class UserService implements Serializable {
 	 * @param userName
 	 * @param password
 	 * @return true if userName and password is correct
-	 * @throws IncorrectPasswordException 
+	 * @throws IncorrectPasswordException
 	 */
-	public User login(String userName, String password) throws IncorrectPasswordException {
+	public User login(String userName, String password)
+			throws IncorrectPasswordException {
 
 		User user;
 		try {
@@ -50,7 +50,7 @@ public class UserService implements Serializable {
 
 		return user;
 	}
-	
+
 	/**
 	 * save the user.
 	 * 
@@ -58,13 +58,22 @@ public class UserService implements Serializable {
 	 * @param password
 	 * @param email
 	 */
-	public void saveUser(String userName, String password, String email){
-		
+	public void registerUser(String userName, String password, String email) {
+
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassword(password);
 		user.setEmail(email);
-			
+
+		userDao.save(user);
+	}
+
+	/**
+	 * edit the user data.
+	 * 
+	 * @param user
+	 */
+	public void editUser(User user) {
 		userDao.save(user);
 	}
 
