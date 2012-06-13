@@ -2,7 +2,6 @@ package de.goldmann.texter.frontend.user;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -10,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
 
+import de.goldmann.texter.exception.IncorrectPasswordException;
 import de.goldmann.texter.model.User;
 import de.goldmann.texter.services.UserService;
 
@@ -27,55 +27,44 @@ public class UserBean implements Serializable {
 
 	private String userName;
 	private String password;
+	private String email;
 	private boolean loggedIn = false;
 	private User user;
 
 	@Inject
 	private UserService userService;
 
-	@PostConstruct
-	public void test() {
-		User user = new User();
-		user.setUserName("peter");
-		user.setPassword("pan");
-		userService.saveUser(user);
-	}
-
 	/**
-	 * login the user
+	 * login the user.
 	 * 
-	 * throws facesmessage if password/username is incorrect.
+	 * throws facesmessage if user doesn't exists or password is incorrect.
 	 */
 	public void login() {
 
 		User user;
 
 		try {
-			user = userService.findUserByUsername(userName);
-		} catch (NoResultException e) {
+			user = userService.login(userName, password);
+		} catch (IncorrectPasswordException | NoResultException e) {
 			password = "";
 			FacesContext.getCurrentInstance().addMessage(
 					null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"Benutzername/Passwort Kombination ungültig!",
-							"Benutzername/Passwort Kombination ungültig!"));
+							"Username/Password incorrect.",
+							"Username/Password incorrect."));
 			return;
 		}
 
-		if (!user.getPassword().equals(this.password)) {
-			password = "";
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"Benutzername/Passwort Kombination ungültig!",
-							"Benutzername/Passwort Kombination ungültig!"));
-			return;
-		}
-
+		loggedIn = true;
 		this.user = user;
 
-		this.loggedIn = true;
-
+	}
+	
+	/**
+	 * save a new user
+	 */
+	public void saveUser(){
+		userService.saveUser(userName, password, email);
 	}
 
 	/**
@@ -106,6 +95,21 @@ public class UserBean implements Serializable {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * @return email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 *            - email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**

@@ -13,7 +13,7 @@ public class User extends AbstractEntitiy {
 
 	private static final long serialVersionUID = 3500054331508398861L;
 
-	private String userName, password;
+	private String userName, password, email;
 
 	/**
 	 * @return username
@@ -43,6 +43,21 @@ public class User extends AbstractEntitiy {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * @return email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 *            - email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

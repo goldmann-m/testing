@@ -17,4 +17,9 @@
 		<view-id value="/faces/contact.xhtml" />
 	</url-mapping>
 	
+	<url-mapping id="registry">
+		<pattern value="/registry/" />
+		<view-id value="/faces/registry/registry.xhtml" />
+	</url-mapping>
+	
 </pretty-config>
