@@ -2,9 +2,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.0 http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.0.xsd">
 
-	<url-mapping id="index">
+	<url-mapping id="home">
 		<pattern value="/" />
 		<view-id value="/faces/index.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="control">
+		<pattern value="/control/user/" />
+		<view-id value="/faces/control/user.xhtml" />
 	</url-mapping>
 	
 	<url-mapping id="about">

@@ -2,6 +2,7 @@ package de.goldmann.texter.services;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
@@ -16,7 +17,7 @@ import de.goldmann.texter.model.User;
  * @author goldmannm
  * 
  */
-@Named
+@RequestScoped
 public class UserService implements Serializable {
 
 	private static final long serialVersionUID = 540434479928296322L;

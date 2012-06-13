@@ -8,25 +8,40 @@
 	<ui:define name="content">
 		<h1>Registry</h1>
 		<hr />
-		<h:form id="formRegister">
-			<div class="row">
-				<div class="span4">
-					<fieldset>
-						<label>Username:</label>
-						<h:inputText value="#{userBean.userName}" required="true" requiredMessage="Username required." />
-						<label>Password:</label>
-						<h:inputSecret value="#{userBean.password}" required="true" requiredMessage="Password required." />
-						<label>Email:</label>
-						<h:inputText value="#{userBean.email}" required="true" requiredMessage="Email required." />
-						<h:messages layout="table" id="errorRegister" styleClass="alert-error" />
-						<br />
-					</fieldset>
-					<div class="btn-group">
-						<p:commandLink styleClass="btn" action="#{userBean.saveUser}" update=":formRegister">register</p:commandLink>
-						<input class="btn" type="reset" value="reset" />
+		<ui:fragment rendered="#{not userBean.loggedIn}">
+			<h:form id="formRegister">
+				<div class="row">
+					<div class="span4">
+						<fieldset>
+							<label>Username:</label>
+							<h:inputText value="#{userBean.userName}" required="true"
+								requiredMessage="Username required." />
+							<label>Password:</label>
+							<h:inputSecret value="#{userBean.password}" required="true"
+								requiredMessage="Password required." />
+							<label>Email:</label>
+							<h:inputText value="#{userBean.email}" required="true"
+								requiredMessage="Email required." />
+							<h:messages layout="table" id="errorRegister"
+								styleClass="alert-error" />
+							<br />
+						</fieldset>
+						<div class="btn-group">
+							<p:commandLink styleClass="btn" action="#{userBean.saveUser}"
+								update=":formRegister">register</p:commandLink>
+							<input class="btn" type="reset" value="reset" />
+						</div>
 					</div>
 				</div>
+			</h:form>
+		</ui:fragment>
+		<ui:fragment rendered="#{userBean.loggedIn}">
+			<div class="row">
+				<div class="span12">
+					<p>You're already registered and logged in.</p>
+					<pretty:link mappingId="home" styleClass="btn">back</pretty:link>
+				</div>
 			</div>
-		</h:form>
+		</ui:fragment>
 	</ui:define>
 </ui:composition>

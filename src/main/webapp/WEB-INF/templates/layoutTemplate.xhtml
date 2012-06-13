@@ -16,16 +16,17 @@
 
 	<h:outputStylesheet name="bootstrap.css" library="css" />
 	<h:outputStylesheet name="bootstrap-responsive.css" library="css" />
+	<h:outputStylesheet name="docs.css" library="css" />
 
 	<style type="text/css">
 body {
-	padding-top: 60px;
+	padding-top: 90px;
 	padding-bottom: 40px;
 }
 </style>
 </h:head>
 <h:body>
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-fixed-top" id="mainNavbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse"
@@ -34,21 +35,38 @@ body {
 				</a> <a class="brand" href="#">Texter</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="#{prettyContext.currentMapping.id eq 'index'? 'active':''}">
-							<pretty:link mappingId="index">Home</pretty:link>
+						<li
+							class="#{prettyContext.currentMapping.id eq 'index'? 'active':''}">
+							<pretty:link mappingId="home">Home</pretty:link>
 						</li>
-						<li	class="#{prettyContext.currentMapping.id eq 'about'? 'active':''}">
+						<ui:fragment rendered="#{userBean.loggedIn}">
+							<li
+								class="#{prettyContext.currentMapping.id eq 'control'? 'active':''}">
+								<pretty:link mappingId="control">Control</pretty:link>
+							</li>
+						</ui:fragment>
+						<li
+							class="#{prettyContext.currentMapping.id eq 'about'? 'active':''}">
 							<pretty:link mappingId="about">About</pretty:link>
 						</li>
-						<li class="#{prettyContext.currentMapping.id eq 'contact'? 'active':''}">
+						<li
+							class="#{prettyContext.currentMapping.id eq 'contact'? 'active':''}">
 							<pretty:link mappingId="contact">Contact</pretty:link>
 						</li>
 					</ul>
+					<ui:fragment rendered="#{userBean.loggedIn}">
+						<h:form style="margin:0;">
+							<ul class="nav pull-right">
+								<li><h:commandLink>Logout</h:commandLink></li>
+							</ul>
+						</h:form>
+					</ui:fragment>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
+	<ui:insert name="subNavbar" />
 
 	<div class="container">
 

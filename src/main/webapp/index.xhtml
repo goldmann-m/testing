@@ -42,7 +42,7 @@
 							<p:watermark for="inputPassword" value="Password"></p:watermark>
 						</p>
 						<p>
-							<p:commandLink id="btnLogin" styleClass="btn" action="#{userBean.login}" update=":divUserAction">Login</p:commandLink>
+							<p:commandLink id="btnLogin" styleClass="btn" action="#{userBean.login}" ajax="false">Login</p:commandLink>
 							<h:messages layout="table" id="errorLogin" styleClass="alert-error" />
 						</p>
 						<p>

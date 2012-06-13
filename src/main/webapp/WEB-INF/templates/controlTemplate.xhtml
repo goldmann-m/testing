@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/layoutTemplate.xhtml">
+	<ui:define name="subNavbar">
+		<div class="subnav subnav-fixed">
+			<ul class="nav nav-pills">
+				<li><a>User</a></li>
+				<li><a>Articles</a></li>
+				<li><a>Features</a></li>
+			</ul>
+		</div>
+	</ui:define>
+	<ui:define name="content">
+		<h1><ui:insert name="headline">Control</ui:insert></h1>
+		<hr />
+		<ui:insert name="controlContent" />
+	</ui:define>
+</ui:composition>
