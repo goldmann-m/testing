@@ -53,6 +53,11 @@
       <artifactId>jboss-ejb-api_3.1_spec</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+    	<groupId>at.w0mb</groupId>
+    	<artifactId>yabby</artifactId>
+    	<version>0.1</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>

@@ -1,11 +1,9 @@
 package de.goldmann.texter.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,9 +20,6 @@ public class Article extends AbstractEntitiy {
 	private String title, content;
 
 	private Date creation;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<String> tags;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private User author;
@@ -72,21 +67,6 @@ public class Article extends AbstractEntitiy {
 	 */
 	public void setCreation(Date creation) {
 		this.creation = creation;
-	}
-
-	/**
-	 * @return list of tags
-	 */
-	public List<String> getTags() {
-		return tags;
-	}
-
-	/**
-	 * @param tags
-	 * 			- list of tags to set
-	 */
-	public void setTags(List<String> tags) {
-		this.tags = tags;
 	}
 
 	/**
