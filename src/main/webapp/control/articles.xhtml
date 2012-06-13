@@ -4,11 +4,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pretty="http://ocpsoft.com/prettyfaces"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:texter="http://java.sun.com/jsf/composite/texter"
 	template="/WEB-INF/templates/controlTemplate.xhtml">
 	<ui:define name="headline">Articles</ui:define>
 	<ui:define name="controlContent">
 		<div class="row">
-			<div class="span4">
+			<div class="span6">
+				<h:form id="testForm">
+					<texter:editor id="editor" value="testesteste" />
+				</h:form>
 			</div>		
 		</div>
 	</ui:define>
