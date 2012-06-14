@@ -4,7 +4,6 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pretty="http://ocpsoft.com/prettyfaces"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:texter="http://java.sun.com/jsf/composite/texter"
 	xmlns:y="http://www.w0mb.at/yabby"
 	template="/WEB-INF/templates/controlTemplate.xhtml">
 	<ui:define name="headline">Articles</ui:define>
@@ -12,23 +11,9 @@
 		<div class="row">
 			<div class="span6">
 				<h:form id="testForm">
-					<texter:editor id="editor" value="testesteste" />
-					<y:fancybox domSelector=".fancybox-thumb"/>
-					
-					<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm7.staticflickr.com/6111/6285920681_67917e8062_b.jpg" title="walk in the park (ewitsoe)">
-	<img src="http://farm7.staticflickr.com/6111/6285920681_67917e8062_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm7.staticflickr.com/6048/6370091853_fa920568e4_b.jpg" title="Tree and Bench, Newlands Corner (craig.denford)">
-	<img src="http://farm7.staticflickr.com/6048/6370091853_fa920568e4_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm7.staticflickr.com/6106/6347065961_bb73745e70_b.jpg" title="Fog (giulio bassi qp)">
-	<img src="http://farm7.staticflickr.com/6106/6347065961_bb73745e70_m.jpg" alt="" />
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm7.staticflickr.com/6221/6358006563_7793474bf9_b.jpg" title="autumn leaves (andrew evans.)">
-	<img src="http://farm7.staticflickr.com/6221/6358006563_7793474bf9_m.jpg" alt="" />
-</a>
+					<y:editor id="editor" value="testesteste" />
 				</h:form>
-			</div>		
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>
