@@ -14,33 +14,42 @@ import de.goldmann.texter.services.ArticleService;
 public class ArticleServiceImpl implements Serializable, ArticleService {
 
 	private static final long serialVersionUID = 1026643269785571583L;
-	
+
 	@Inject
 	private ArticleDao articleDao;
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.goldmann.texter.services.ArticleService#createArticle(de.goldmann.texter.model.Article)
+	 * 
+	 * @see
+	 * de.goldmann.texter.services.ArticleService#createArticle(de.goldmann.
+	 * texter.model.Article)
 	 */
 	@Override
 	public void createArticle(Article article) {
 		articleDao.save(article);
-		
+
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.goldmann.texter.services.ArticleService#editArticle(de.goldmann.texter.model.Article)
+	 * 
+	 * @see
+	 * de.goldmann.texter.services.ArticleService#editArticle(de.goldmann.texter
+	 * .model.Article)
 	 */
 	@Override
 	public void editArticle(Article article) {
 		articleDao.save(article);
-		
+
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.goldmann.texter.services.ArticleService#removeArticle(de.goldmann.texter.model.Article)
+	 * 
+	 * @see
+	 * de.goldmann.texter.services.ArticleService#removeArticle(de.goldmann.
+	 * texter.model.Article)
 	 */
 	@Override
 	public void removeArticle(Article article) {
@@ -49,6 +58,7 @@ public class ArticleServiceImpl implements Serializable, ArticleService {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.goldmann.texter.services.ArticleService#getAllArticles()
 	 */
 	@Override
@@ -58,22 +68,26 @@ public class ArticleServiceImpl implements Serializable, ArticleService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.goldmann.texter.services.ArticleService#getAllArticlesFromUser(java.lang.Long)
+	 * 
+	 * @see
+	 * de.goldmann.texter.services.ArticleService#getAllArticlesFromUser(java
+	 * .lang.Long)
 	 */
 	@Override
 	public List<Article> getAllArticlesFromUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleDao.getAllArticlesFromUser(userId);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.goldmann.texter.services.ArticleService#getAllArticlesFromAuthor(java.lang.String)
+	 * 
+	 * @see
+	 * de.goldmann.texter.services.ArticleService#getAllArticlesFromAuthor(java
+	 * .lang.String)
 	 */
 	@Override
 	public List<Article> getAllArticlesFromAuthor(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleDao.getAllArticlesFromAuthor(name);
 	}
 
 }

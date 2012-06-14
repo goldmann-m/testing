@@ -5,12 +5,12 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 
 import de.goldmann.texter.dao.ArticleDao;
 import de.goldmann.texter.model.Article;
 import de.goldmann.texter.model.Article_;
-import de.goldmann.texter.model.User;
 import de.goldmann.texter.model.User_;
 
 /**
@@ -35,27 +35,11 @@ public class ArticleDaoImpl extends GenericJpaDao<Article, Long> implements
 		
 		Root<Article> article = criteriaQuery.from(Article.class);
 		
-		//criteriaQuery.select(article).where(criteriaBuilder.equal(article.get(Article_.author), )).distinct(true);
+		Path<Long> path = article.join(Article_.author).get(User_.id);
 		
-//		CriteriaBuilder cb = em.getCriteriaBuilder();
-//		 CriteriaQuery<Long> cq = cb.createQuery(Long.class);
-//		 Root<Country> s = cq.from(Country.class);
-//
-//		 ListJoin<Country, State> cs= s.join(Country_.states);
-//		 ListJoin<State, District> sd = cs.join(State_.disctricts);
-//		 ListJoin<District, City> dc = sd.join(District_.cities);
-//		 ListJoin<City, Camping> cc = dc.join(City_.campings);
-//
-//		 cq.select(cb.count(cc)).where(cb.equal(s.get(Country_.isoCountryCode), country.getIsoCountryCode()));
-//
-//		 try {
-//		     return em.createQuery(cq).getSingleResult();
-//		 } catch (NoResultException nre) {
-//		     nre.printStackTrace();
-//		 }
-//
-//		 return 0L;
-		return null;
+		criteriaQuery.select(article).where(criteriaBuilder.equal(path, userId));
+		
+		return getEntityManager().createQuery(criteriaQuery).getResultList();
 	}
 
 	/*
@@ -64,7 +48,15 @@ public class ArticleDaoImpl extends GenericJpaDao<Article, Long> implements
 	 */
 	@Override
 	public List<Article> getAllArticlesFromAuthor(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
+		CriteriaQuery<Article> criteriaQuery = criteriaBuilder.createQuery(Article.class);
+		
+		Root<Article> article = criteriaQuery.from(Article.class);
+		
+		Path<String> path = article.join(Article_.author).get(User_.userName);
+		
+		criteriaQuery.select(article).where(criteriaBuilder.equal(path, name));
+		
+		return getEntityManager().createQuery(criteriaQuery).getResultList();
 	}
 }

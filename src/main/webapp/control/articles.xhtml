@@ -1,14 +1,18 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pretty="http://ocpsoft.com/prettyfaces"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:y="http://www.w0mb.at/yabby"
 	template="/WEB-INF/templates/controlTemplate.xhtml">
 	<ui:define name="headline">Articles</ui:define>
 	<ui:define name="controlContent">
 		<div class="row">
+			<div class="span6">
+				<h3>
+					<h:outputText value="Your Articles" />
+				</h3>
+				<hr />
+			</div>
 			<div class="span6">
 				<h:form id="testForm">
 					<y:editor id="editor" value="testesteste" />

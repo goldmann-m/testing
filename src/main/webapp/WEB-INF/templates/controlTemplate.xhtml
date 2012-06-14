@@ -6,9 +6,9 @@
 	<ui:define name="subNavbar">
 		<div class="subnav subnav-fixed">
 			<ul class="nav nav-pills">
-				<li class="#{prettyContext.currentMapping.id eq 'controlUser'? 'active':''}"><pretty:link mappingId="controlUser">User</pretty:link></li>
-				<li class="#{prettyContext.currentMapping.id eq 'controlArticles'? 'active':''}"><pretty:link mappingId="controlArticles" >Articles</pretty:link></li>
-				<li class="#{prettyContext.currentMapping.id eq 'controlFeatures'? 'active':''}"><pretty:link mappingId="controlFeatures" >Features</pretty:link></li>
+				<li><h:link outcome="pretty:controlUser">User</h:link></li>
+				<li><h:link outcome="pretty:controlArticles" >Articles</h:link></li>
+				<li><h:link outcome="pretty:controlFeatures" >Features</h:link></li>
 			</ul>
 		</div>
 	</ui:define>
