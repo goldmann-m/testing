@@ -6,11 +6,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="/WEB-INF/templates/layoutTemplate.xhtml">
 	<ui:define name="hero-unit">
-		<!-- Main hero unit for a primary marketing message or call to action -->
 		<div class="hero-unit">
-			<h1>
-				Welcome...
-			</h1>
+			<h1>Welcome...</h1>
 		</div>
 	</ui:define>
 	<ui:define name="content">
@@ -35,15 +32,19 @@
 					<h2>Login</h2>
 					<h:form id="formLogin">
 						<p>
-							<h:inputText id="inputUsername" value="#{userBean.userName}" requiredMessage="Username is required." required="true" />
+							<h:inputText id="inputUsername" value="#{userBean.userName}"
+								requiredMessage="Username is required." required="true" />
 							<p:watermark for="inputUsername" value="Username" />
 							<br />
-							<h:inputSecret id="inputPassword" value="#{userBean.password}" requiredMessage="Password is required." required="true" />
+							<h:inputSecret id="inputPassword" value="#{userBean.password}"
+								requiredMessage="Password is required." required="true" />
 							<p:watermark for="inputPassword" value="Password"></p:watermark>
 						</p>
 						<p>
-							<p:commandLink id="btnLogin" styleClass="btn" action="#{userBean.login}" ajax="false">Login</p:commandLink>
-							<h:messages layout="table" id="errorLogin" styleClass="alert-error" />
+							<p:commandLink id="btnLogin" styleClass="btn"
+								action="#{userBean.login}" ajax="false">Login</p:commandLink>
+							<h:messages layout="table" id="errorLogin"
+								styleClass="alert-error" />
 						</p>
 						<p>
 							<pretty:link mappingId="registry">Registrieren</pretty:link>

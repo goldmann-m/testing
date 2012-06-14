@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.ocpsoft.rewrite</groupId>
 			<artifactId>rewrite-integration-cdi</artifactId>
-			<version>1.0.4.Final</version>
+			<version>1.0.5.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces</groupId>

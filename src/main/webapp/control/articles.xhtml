@@ -7,15 +7,44 @@
 	<ui:define name="headline">Articles</ui:define>
 	<ui:define name="controlContent">
 		<div class="row">
-			<div class="span6">
+			<div class="span7">
 				<h3>
 					<h:outputText value="Your Articles" />
 				</h3>
 				<hr />
+				<h:form id="formArticles">
+					<ui:repeat var="article" value="#{articleBean.allArticles}">
+						<h4>
+							<h:outputText value="#{article.title} " />
+						</h4>
+						<h:outputText style="font-size: 11px;" value="created: " />
+						<h:outputText style="font-size: 11px;" value="#{article.creation}">
+							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+						</h:outputText>
+						<p style="padding-top: 5px;">
+							<h:outputText escape="false" value="#{article.content}" />
+						</p>
+					</ui:repeat>
+				</h:form>
 			</div>
-			<div class="span6">
+			<div class="span5">
+				<h3>
+					<h:outputText value="New Article" />
+				</h3>
+				<hr />
 				<h:form id="testForm">
-					<y:editor id="editor" value="testesteste" />
+					<fieldset>
+						<label>Title:</label>
+						<h:inputText value="#{articleBean.title}" style="width:99%;" />
+						<label>Content:</label>
+						<y:editor value="#{articleBean.content}" id="editor" />
+						<br />
+					</fieldset>
+					<div class="btn-group">
+						<h:commandLink value="save" styleClass="btn"
+							action="#{articleBean.saveArticle}" />
+						<h:commandLink value="reset" styleClass="btn" />
+					</div>
 				</h:form>
 			</div>
 		</div>
