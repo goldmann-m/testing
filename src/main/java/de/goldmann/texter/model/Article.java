@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 /**
@@ -17,11 +18,14 @@ public class Article extends AbstractEntitiy {
 
 	private static final long serialVersionUID = -7684245505708160216L;
 
-	private String title, content;
+	private String title;
+	
+	@Lob
+	private String content;
 
 	private Date creation;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.REFRESH)
 	private User author;
 
 	/**

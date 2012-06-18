@@ -1,30 +1,52 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:y="http://www.w0mb.at/yabby"
-	template="/WEB-INF/templates/controlTemplate.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:y="http://www.w0mb.at/yabby" template="/WEB-INF/templates/controlTemplate.xhtml">
 	<ui:define name="headline">Articles</ui:define>
 	<ui:define name="controlContent">
+		
 		<div class="row">
 			<div class="span7">
 				<h3>
 					<h:outputText value="Your Articles" />
 				</h3>
-				<hr />
+				<br />
 				<h:form id="formArticles">
-					<ui:repeat var="article" value="#{articleBean.allArticles}">
-						<h4>
-							<h:outputText value="#{article.title} " />
-						</h4>
-						<h:outputText style="font-size: 11px;" value="created: " />
-						<h:outputText style="font-size: 11px;" value="#{article.creation}">
-							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-						</h:outputText>
-						<p style="padding-top: 5px;">
-							<h:outputText escape="false" value="#{article.content}" />
-						</p>
-					</ui:repeat>
+					<table style="width: 100%;">
+						<ui:repeat var="article" value="#{articleBean.userArticles}">
+							<tr>
+								<td style="width: 80%;">
+									<h4>
+										<h:outputText value="#{article.title} " />
+									</h4>
+									<h:outputText style="font-size: 11px;" value="#{article.creation}">
+										<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+									</h:outputText>
+								</td>
+								<td style="width: 20%;">
+									<h:commandLink action="#{articleBean.prepareEditArticle(article)}">
+										<h:graphicImage name="glyphicons_030_pencil.png" library="img/glyphicons/png" />
+									</h:commandLink>
+									<y:modal title="Delete?" fadeIn="true">
+										<f:facet name="content">
+											<h4><h:outputText value="Do you want to delete the article?" /></h4>
+										</f:facet>
+										<f:facet name="footer">
+											 <a href="#" class="btn" data-dismiss="modal">Close</a>
+											<h:commandLink styleClass="btn btn-primary" value="Yes" action="#{articleBean.removeArticle(article)}" />
+										</f:facet>
+										<f:facet name="buttons">
+											<a data-toggle="modal" href="##{cc.id}"><h:graphicImage style="margin-left: 15px;" name="glyphicons_207_remove_2.png" library="img/glyphicons/png" /></a>
+										</f:facet>
+									</y:modal>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="padding-top: 5px;">
+										<h:outputText escape="false" value="#{article.content}" />
+									</p>
+								</td>
+							</tr>
+						</ui:repeat>
+					</table>
 				</h:form>
 			</div>
 			<div class="span5">
@@ -35,14 +57,14 @@
 				<h:form id="testForm">
 					<fieldset>
 						<label>Title:</label>
-						<h:inputText value="#{articleBean.title}" style="width:99%;" />
+						<h:inputText value="#{articleBean.article.title}" style="width:99%;" />
 						<label>Content:</label>
-						<y:editor value="#{articleBean.content}" id="editor" />
+						<y:editor value="#{articleBean.article.content}" id="editor" />
 						<br />
 					</fieldset>
 					<div class="btn-group">
-						<h:commandLink value="save" styleClass="btn"
-							action="#{articleBean.saveArticle}" />
+						<h:commandLink value="save" styleClass="btn" rendered="#{not articleBean.editMode}" action="#{articleBean.saveArticle}" />
+						<h:commandLink value="save" styleClass="btn" rendered="#{articleBean.editMode}" action="#{articleBean.editArticle}" />
 						<h:commandLink value="reset" styleClass="btn" />
 					</div>
 				</h:form>

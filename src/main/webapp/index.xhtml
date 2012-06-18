@@ -66,36 +66,18 @@
 				<h2>Latest Articles...</h2>
 			</div>
 			<div class="span12">
-				<h3>Article 1</h3>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-					diam nonumy eirmod tempor invidunt ut labore et dolore magna
-					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-				<h3>Article 2</h3>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-					diam nonumy eirmod tempor invidunt ut labore et dolore magna
-					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-				<h3>Article 3</h3>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-					diam nonumy eirmod tempor invidunt ut labore et dolore magna
-					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-					sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-					ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-					eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+				<ui:repeat var="article" value="#{articleBean.allArticles}">
+					<h3>
+						<h:outputText value="#{article.title} " />
+					</h3>
+					<h:outputText style="font-size: 11px;" value="Author: #{article.author.userName} - " />
+					<h:outputText style="font-size: 11px;" value="#{article.creation}">
+						<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+					</h:outputText>
+					<p style="padding-top: 5px;">
+						<h:outputText escape="false" value="#{article.content}" />
+					</p>
+				</ui:repeat>
 			</div>
 		</div>
 	</ui:define>
