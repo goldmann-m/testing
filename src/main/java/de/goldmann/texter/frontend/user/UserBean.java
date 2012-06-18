@@ -78,7 +78,16 @@ public class UserBean implements Serializable {
 	 * save a new user
 	 */
 	public void registerUser() {
-		userService.registerUser(userName, password, email);
+		User user = createUserObject();
+		userService.registerUser(user);
+	}
+
+	private User createUserObject() {
+		User user = new User();
+		user.setUserName(userName);
+		user.setPassword(password);
+		user.setEmail(email);
+		return user;
 	}
 
 	/**

@@ -30,7 +30,7 @@ public interface UserService {
 	 * @param password
 	 * @param email
 	 */
-	public void registerUser(String userName, String password, String email);
+	public void registerUser(User user);
 	
 	/**
 	 * edit the user data.

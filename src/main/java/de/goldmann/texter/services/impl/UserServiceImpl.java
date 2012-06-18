@@ -47,13 +47,7 @@ public class UserServiceImpl implements Serializable, UserService {
 	 * (non-Javadoc)
 	 * @see de.goldmann.texter.services.UserService#registerUser(java.lang.String, java.lang.String, java.lang.String)
 	 */
-	public void registerUser(String userName, String password, String email) {
-
-		User user = new User();
-		user.setUserName(userName);
-		user.setPassword(password);
-		user.setEmail(email);
-
+	public void registerUser(User user) {
 		userDao.save(user);
 	}
 
