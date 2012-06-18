@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.NoResultException;
 
+import de.goldmann.texter.common.exception.IncorrectPasswordException;
+import de.goldmann.texter.common.exception.NoUserFoundException;
 import de.goldmann.texter.dao.UserDao;
-import de.goldmann.texter.exception.IncorrectPasswordException;
 import de.goldmann.texter.model.User;
 import de.goldmann.texter.services.UserService;
 
@@ -30,16 +30,11 @@ public class UserServiceImpl implements Serializable, UserService {
 	 * @see de.goldmann.texter.services.UserService#login(java.lang.String, java.lang.String)
 	 */
 	public User login(String userName, String password)
-			throws IncorrectPasswordException {
+			throws IncorrectPasswordException, NoUserFoundException {
 
 		User user;
-		try {
 			user = userDao.findUserByUsername(userName);
-		} catch (NoResultException e) {
-
-			throw new NoResultException();
-		}
-
+		
 		if (!user.getPassword().equals(password)) {
 
 			throw new IncorrectPasswordException();

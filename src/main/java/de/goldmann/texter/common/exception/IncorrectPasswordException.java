@@ -1,4 +1,4 @@
-package de.goldmann.texter.exception;
+package de.goldmann.texter.common.exception;
 
 /**
  * Exception for incorrect password.

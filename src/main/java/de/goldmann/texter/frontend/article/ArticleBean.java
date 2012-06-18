@@ -13,7 +13,6 @@ import javax.inject.Named;
 import de.goldmann.texter.frontend.user.UserBean;
 import de.goldmann.texter.model.Article;
 import de.goldmann.texter.services.ArticleService;
-import de.goldmann.texter.services.UserService;
 
 /**
  * Bean for article handling.

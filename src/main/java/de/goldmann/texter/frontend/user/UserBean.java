@@ -7,9 +7,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.NoResultException;
 
-import de.goldmann.texter.exception.IncorrectPasswordException;
+import de.goldmann.texter.common.exception.IncorrectPasswordException;
+import de.goldmann.texter.common.exception.NoUserFoundException;
 import de.goldmann.texter.model.User;
 import de.goldmann.texter.services.UserService;
 
@@ -45,7 +45,7 @@ public class UserBean implements Serializable {
 
 		try {
 			user = userService.login(userName, password);
-		} catch (IncorrectPasswordException | NoResultException e) {
+		} catch (IncorrectPasswordException | NoUserFoundException e) {
 			password = "";
 			FacesContext.getCurrentInstance().addMessage(
 					null,

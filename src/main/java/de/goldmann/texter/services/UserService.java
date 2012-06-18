@@ -1,6 +1,7 @@
 package de.goldmann.texter.services;
 
-import de.goldmann.texter.exception.IncorrectPasswordException;
+import de.goldmann.texter.common.exception.IncorrectPasswordException;
+import de.goldmann.texter.common.exception.NoUserFoundException;
 import de.goldmann.texter.model.User;
 
 /**
@@ -20,7 +21,7 @@ public interface UserService {
 	 * @throws IncorrectPasswordException
 	 */
 	public User login(String userName, String password)
-			throws IncorrectPasswordException;
+			throws IncorrectPasswordException, NoUserFoundException;
 	
 	/**
 	 * save the user.

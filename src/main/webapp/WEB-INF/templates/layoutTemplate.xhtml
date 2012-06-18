@@ -45,7 +45,7 @@ body {
 					<ui:fragment rendered="#{userBean.loggedIn}">
 						<h:form style="margin:0;">
 							<ul class="nav pull-right">
-								<li><h:link outcome="pretty:logout">Logout</h:link></li>
+								<li><h:commandLink action="#{userBean.logout}">Logout</h:commandLink></li>
 							</ul>
 						</h:form>
 					</ui:fragment>

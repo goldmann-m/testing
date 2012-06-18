@@ -1,5 +1,6 @@
 package de.goldmann.texter.dao;
 
+import de.goldmann.texter.common.exception.NoUserFoundException;
 import de.goldmann.texter.model.User;
 
 /**
@@ -17,6 +18,6 @@ public interface UserDao extends GenericDao<User, Long> {
 	 * 
 	 * @return {@link User}
 	 */
-	public User findUserByUsername(String userName);
+	public User findUserByUsername(String userName) throws NoUserFoundException;
 	
 }

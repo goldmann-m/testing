@@ -65,11 +65,4 @@
   SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#control#user.xhtml"
   PATH="/control/user.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:*:7" PATH="*" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:*:7" NAME="item" PATH="*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="pretty:logout::#logout" NAME="output"
-    PATH="/logout" TARGET="rules:#logout" TITLE="pretty:logout" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#logout" PATH="/logout" SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
